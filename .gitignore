@@ -1,0 +1,14 @@
+/pictureCtrl/*
+/pictureCtrl/*.tmp
+/pictureCtrl/*.aps
+/pictureCtrl/*.user
+/*.suo
+/*
+/*.opensdf
+/*.sdf
+/img
+/ipch
+/pictureCtrl.opensdf
+/pictureCtrl.sdf
+/pictureCtrl.v12.suo
+/Debug

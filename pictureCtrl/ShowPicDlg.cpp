@@ -87,17 +87,10 @@ int CShowPicDlg::drawPicToHDC(IplImage *pImg)
     // 该函数可以设置指定输出设备环境中的位图拉伸模式
     SetStretchBltMode(m_hDC, COLORONCOLOR);
 
-    //SetViewportExtEx(m_hDC, )
-    ////将GDI+中原始的坐标原点平移
-    //TranslateTransform(0f, this.Height);
-
-    ////变换x，y轴的正方向
-    //g.ScaleTransform(1f, -1f);
-
     ::StretchDIBits(
         m_hDC,
-        // 0, m_rect.Height(), m_rect.Width(), -m_rect.Height(),  // 方案111
-        // 0, 0, m_rect.Width(), m_rect.Height(), // 方案222
+        // 默认绘制原点为左上角，X方向向右为正，Y方向向下为正
+        // 加上负号表明X或者Y方向取反
         m_rect.Width(), m_rect.Height(), -m_rect.Width(), -m_rect.Height(),
         0, 0, m_bmpInfo.bmiHeader.biWidth, m_bmpInfo.bmiHeader.biHeight,
         pImg->imageData, (PBITMAPINFO)&m_bmpInfo, DIB_RGB_COLORS, SRCCOPY);
